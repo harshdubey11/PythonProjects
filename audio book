@@ -1,0 +1,32 @@
+import pyttsx3
+from future.moves import tkinter
+from tkinter import *
+import PyPDF2
+root=Tk()
+
+root.title("AUDIO BOOK")
+root.geometry('600x100')
+filename = Entry(root,width=50,borderwidth=7)
+filename.insert(0,"#_Enter file name_#")
+filename.pack()
+Pagenumber=Entry(root,width=50,borderwidth=7)
+Pagenumber.insert(1,"#_Enter page number to start from_#")
+Pagenumber.pack()
+
+
+def speak():
+    engine=pyttsx3.init()
+    engine.setProperty('rate', 120)
+    pdfFileObj = open(filename.get(), 'rb')
+    pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+    for i in range(int(Pagenumber.get()) - 1, pdfReader.numPages):
+        pageObj = pdfReader.getPage(i)
+        engine.say(pageObj.extractText())
+        engine.runAndWait()
+button1=Button(root,text="START",command=speak)
+button1.pack()
+
+
+
+root.mainloop()
+pdfFileObj.close()
