@@ -1,1 +1,2 @@
 # PythonProjects
+JUST SOME MINI PROJECTS
