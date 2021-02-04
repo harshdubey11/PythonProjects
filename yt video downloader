@@ -81,7 +81,7 @@ ytdchoices = ttk.Combobox(root,values=choices)
 ytdchoices.grid()
 
 #donwload btn
-downloadbtn = Button(root,text="Donwload",width=10,bg="deep sky blue",fg="black",command=DownloadVideo,activebackground='hot pink')
+downloadbtn = Button(root,text="Download",width=10,bg="deep sky blue",fg="black",command=DownloadVideo,activebackground='hot pink')
 downloadbtn.grid()
 
 
